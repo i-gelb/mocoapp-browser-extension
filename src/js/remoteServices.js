@@ -76,7 +76,7 @@ export default {
     id: (document, service, { org, repo, id }) => [service.key, org, repo, id].join("."),
     description: (document, _service, { org: _org, repo: _repo, id: _id }) =>
       document.querySelector(".js-issue-title")?.textContent?.trim(),
-    projectId: projectIdentifierBySelector(".js-issue-title"),
+    projectId: projectIdentifierBySelector(".js-issue-sidebar-form a.Link--secondary", "title"),
     allowHostOverride: false,
   },
 
