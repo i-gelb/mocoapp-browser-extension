@@ -37,7 +37,10 @@ export const findProjectByIdentifier = findProjectBy("identifier")
 export const findProjectByLabel = findProjectBy("label")
 export const findProjectByValue = findProjectBy("value")
 
-export const findTask = (id) => compose(find(pathEq("value", Number(id))), get("tasks"))
+export const findTaskByLabel = (label) => compose(find(pathEq("label", label)), get("tasks"))
+
+export const taskRegex = /^([^|]+)(?=\s*\|)/
+export const taskLabelBySelector = (selector, attr = "label") => (document) => document.querySelector(selector)?.[attr]?.match(taskRegex)?.[0]?.trim();
 
 export const defaultTask = (tasks) =>
   compose(defaultTo(head(tasks)), find(pathEq("isDefault", true)), nilToArray)(tasks)

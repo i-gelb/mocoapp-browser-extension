@@ -94,6 +94,7 @@ export const createEnhancer = (document) => (service) => {
     description: evaluate(service.description),
     projectId: evaluate(service.projectId),
     projectLabel: evaluate(service.projectLabel),
+    taskLabel: evaluate(service.taskLabel),
     taskId: evaluate(service.taskId),
     position: service.position || { right: "calc(2rem + 5px)" },
   }

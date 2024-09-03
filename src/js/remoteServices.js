@@ -1,4 +1,4 @@
-import { projectIdentifierBySelector, projectRegex } from "./utils"
+import { projectIdentifierBySelector, taskLabelBySelector, lol, projectRegex } from "./utils"
 import remoteServicesCommunity from "./remoteServicesCommunity"
 
 export default {
@@ -66,6 +66,7 @@ export default {
     id: (document, service, { org, repo, id }) => [service.key, org, repo, id].join("."),
     description: (document) => document.querySelector(".js-issue-title")?.textContent?.trim(),
     projectId: projectIdentifierBySelector(".js-issue-sidebar-form a.Link--secondary", "title"),
+    taskLabel: taskLabelBySelector(".js-issue-sidebar-form a.Link--secondary", "title"),
     allowHostOverride: false,
   },
 
@@ -77,6 +78,7 @@ export default {
     description: (document, _service, { org: _org, repo: _repo, id: _id }) =>
       document.querySelector(".js-issue-title")?.textContent?.trim(),
     projectId: projectIdentifierBySelector(".js-issue-sidebar-form a.Link--secondary", "title"),
+    taskLabel: taskLabelBySelector(".js-issue-sidebar-form a.Link--secondary", "title"),
     allowHostOverride: false,
   },
 

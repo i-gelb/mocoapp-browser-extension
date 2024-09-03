@@ -13,7 +13,7 @@ import {
   findProjectByValue,
   findProjectByLabel,
   findProjectByIdentifier,
-  findTask,
+  findTaskByLabel,
   defaultTask,
   formatDate,
 } from "utils"
@@ -55,12 +55,9 @@ class App extends Component {
   }
 
   get task() {
-    const { service, serviceLastTaskId, userLastTaskId } = this.state
-    return (
-      findTask(
-        this.state.changeset.task_id || serviceLastTaskId || service?.taskId || userLastTaskId,
-      )(this.project) || defaultTask(this.project?.tasks)
-    )
+    const { service } = this.state
+
+    return findTaskByLabel(service?.taskLabel)(this.project) || defaultTask(this.project?.tasks)
   }
 
   get billable() {
