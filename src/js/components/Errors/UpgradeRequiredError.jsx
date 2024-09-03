@@ -1,7 +1,7 @@
 import React from "react"
 import { sendMessage } from "webext-bridge/content-script"
 import { isChrome } from "utils/browser"
-import logo from "images/moco-159x159.png"
+import logo from "images/i-gelb-159x159.png"
 import firefoxAddons from "images/firefox_addons.png"
 
 const UpgradeRequiredError = () => (
