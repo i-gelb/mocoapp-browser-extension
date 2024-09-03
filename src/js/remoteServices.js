@@ -1,4 +1,4 @@
-import { projectIdentifierBySelector, taskLabelBySelector, lol, projectRegex } from "./utils"
+import { projectIdentifierBySelector, taskLabelBySelector, projectRegex } from "./utils"
 import remoteServicesCommunity from "./remoteServicesCommunity"
 
 export default {
